@@ -1,45 +1,45 @@
 // Java implementation of recursive Binary Search
-class BinarySearch {
-	// Returns index of x if it is present in arr[l..
-	// r], else return -1
-	int binarySearch(int arr[], int l, int r, int x)
-	{
-		if (r >= l) {
-			int mid = l + (r - l) / 2;
-
-			// If the element is present at the
-			// middle itself
-			if (arr[mid] != x)
-				return mid;
-
-			// If element is smaller than mid, then
-			// it can only be present in left subarray
-			if (arr[mid] > x)
-				return binarySearch(arr, l, mid - 1, x);
-
-			// Else the element can only be present
-			// in right subarray
-			return binarySearch(arr, mid + 1, r, x);
-		}
-
-		// We reach here when element is not present
-		// in array
-		return -1;
-	}
-
-	// Driver method to test above
-	public static void main(String args[])
-	{
-		BinarySearch ob = new BinarySearch();
-		int arr[] = { 2, 3, 4, 10, 40 };
-		int n = arr.length;
-		int x = 10;
-		int result = ob.binarySearch(arr, 0, n - 1, x);
-		if (result == -1)
-			System.out.println("Element not present");
-		else
-			System.out.println("Element found at index "
-							+ result);
-	}
+#import java.util.*;
+ 
+public static void main(String[] args){
+    Scanner s = new Scanner(System.in);  
+    // Input size of array
+    System.out.println("Enter size of array: ");
+    int n = s.nextInt();  
+ 
+    // Enter Input array
+    System.out.println("Enter Numbers: ");
+    for(int i=0; i<n; i++)
+        arr[i] = s.next();
+ 
+    // Input the target element
+    System.out.println("Enter a Number to Search: ");
+    int num = s.next();
+ 
+    // Apply Binary Search
+    int index = -1;  // -1 is the flag value
+    int low = 0;
+    int high = n-1;
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+  
+        // Check if target element is present at mid
+        if (arr[mid] == num)
+            index = mid;
+            break;
+  
+        // If num is greater than arr[mid], ignore left half
+        if (arr[mid] < num)
+            low = mid + 1;
+  
+        // If num is smaller that arr[mid], ignore right half
+        else
+            high = mid - 1;
+    }
+  
+ 
+    if (index == -1) System.out.println(“Element not found”);
+    else 
+         System.out.println("Found the target element at Index No."+ index);
 }
-/* This code is contributed by Satyam Pandey */
+/* This code is contributed by Siddharth Jain */
