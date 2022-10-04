@@ -42,4 +42,4 @@ public static void main(String[] args){
     else 
          System.out.println("Found the target element at Index No."+ index);
 }
-/* This code is contributed by Satyam Pandey */
+/* This code is contributed by Siddharth Jain */
